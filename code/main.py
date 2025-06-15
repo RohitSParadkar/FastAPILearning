@@ -25,15 +25,15 @@ def addTeas(tea:Tea):
 
 @app.put("/addTeas/{tea_id}")
 def addTeasWithId(tea_id:int,updated_tea: Tea):
-    for index, tea in enumerate(tea):
+    for index, tea in enumerate(teas):
         if tea.id == tea_id:
             tea[index] = Tea
             return updated_tea
     return {"error":"Tea not found"}
 
 @app.put("/removeTeas/{tea_id}")
-def addTeasWithId(tea_id:int,updated_tea: Tea):
-    for index, tea in enumerate(tea):
+def addTeasWithId(tea_id:int):
+    for index, tea in enumerate(teas):
         if(tea.id==tea_id):
             deleted = teas.pop(index)
             return deleted
